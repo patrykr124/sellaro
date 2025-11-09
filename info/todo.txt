@@ -14,3 +14,21 @@ docker-compose -p sallero logs -f sallero
 gemini  - > proszę, sprawdź w całości mój kod, sprawdz czy struktura, architektura oraz kod jest prawidłowy, jeśli coś jest nie tak to podaj proszę link do dokumentacji z tym i napisz poprawną    │
 │    wersję, chciałbym abyś zrobił z tego tutorial co jest źle, projekt ma być użyty z najlepszym podejściem i aktualnościami. bądź jak komisja i senior develope, który chce mnie nauczyć   │
 │    clean code, architektury oraz prawidłowej logiki tego co już jest  
+
+
+
+
+//////////////////
+Dodać endpoint publiczny dla każdego uzytkownika www
+
+Tak, dokładnie! 👍 Możesz zostawić wszystko jak jest teraz i spokojnie pracować nad swoim projektem. Kiedy będziesz gotowy do wdrożenia chatu na produkcję, po prostu dodasz nowe endpointy dla publicznego użytku.
+Twoja aktualna struktura (dla development):
+✅ /api/message - dla zalogowanych użytkowników (z historią) ✅ /api/upload-pdf - dla zalogowanych użytkowników (osobne produkty)
+Co dodasz w przyszłości (dla produkcji):
+🔜 /api/chat/public - dla gości (bez zapisywania historii) 🔜 Ewentualnie: /api/products/public - endpoint do pobierania wszystkich produktów dla gości
+Korzyści tego podejścia:
+Nie psuje obecnej funkcjonalności - wszystko działa jak trzeba
+Łatwe rozszerzenie - dodasz tylko nowe kontrolery
+Czyste rozdzielenie - prywatne vs publiczne API
+Backward compatibility - stare endpointy działają bez zmian
+Więc TAK - zostaw kod jak jest i dokończ development. Gdy będziesz gotowy na produkcję, po prostu daj znać, a pomogę Ci dodać te publiczne endpointy! 🚀 Czy masz jeszcze jakieś pytania dotyczące obecnej implementacji?
