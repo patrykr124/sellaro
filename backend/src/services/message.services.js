@@ -2,10 +2,9 @@ import db from "../db/config.js";
 
 export async function saveUserMessage(content, userId) {
   try {
-    await db.collection("messages").add({
+    await db.collection("users").doc(userId.email).collection("messages").add({
       role: "user",
       content,
-      userId,
       createdAt: new Date(),
     });
   } catch (error) {
@@ -18,7 +17,6 @@ export async function responseAi(aiReply, productsForAI = [], userId) {
     const aiMessage = {
       role: "ai",
       content: aiReply,
-      userId,
       createdAt: new Date(),
       products: productsForAI.map((p) => ({
         id: String(p.id ?? Date.now()),
@@ -29,7 +27,7 @@ export async function responseAi(aiReply, productsForAI = [], userId) {
     };
 
     console.log("AI message to save:", JSON.stringify(aiMessage, null, 2));
-    const docRef = await db.collection("messages").add(aiMessage);
+    const docRef = await db.collection("users").doc(userId.email).collection("messages").add(aiMessage);
 
     // opcjonalnie echo
     const snap = await docRef.get();

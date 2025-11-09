@@ -1,0 +1,5 @@
+# Firebase Service Account Keys
+serviceAccountKey.json
+config/serviceAccountKey.json
+**/serviceAccountKey.json
+**/*firebase-adminsdk*.json
