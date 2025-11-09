@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1758282763641,
+    "name": "AXE Szampon do włosów suchych",
+    "description": "Intensywna pielęgnacja dla mężczyzn, która nawilża i odżywia włosy, ułatwia układanie fryzury i nadaje jej naturalny blask. Produkt chroni włosy przed przesuszeniem i sprawia, że stają się one mocniejsze, bardziej elastyczne i mniej podatne na łamanie.",
+    "image": "http://localhost:5000/api/products/szampon_axe.webp",
+    "createdAt": "2025-09-19T11:52:43.641Z"
+  }
+]

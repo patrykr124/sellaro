@@ -1,0 +1,16 @@
+// DODAĆ RAG
+// integracja rag z wooocmerce / shopify itp
+
+
+docker compose logs -f chatbotai
+
+
+docker-compose -p sallero up
+docker-compose -p sallero down
+docker-compose -p sallero logs -f sallero
+
+
+
+gemini  - > proszę, sprawdź w całości mój kod, sprawdz czy struktura, architektura oraz kod jest prawidłowy, jeśli coś jest nie tak to podaj proszę link do dokumentacji z tym i napisz poprawną    │
+│    wersję, chciałbym abyś zrobił z tego tutorial co jest źle, projekt ma być użyty z najlepszym podejściem i aktualnościami. bądź jak komisja i senior develope, który chce mnie nauczyć   │
+│    clean code, architektury oraz prawidłowej logiki tego co już jest  

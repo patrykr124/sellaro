@@ -1,0 +1,10 @@
+{"id": 1, "title": "JavaScript Closures", "content": "Domknięcie w JavaScripcie to funkcja, która zapamiętuje zmienne ze swojego otoczenia. Dzięki temu ma do nich dostęp nawet wtedy, gdy jest wywoływana poza oryginalnym zakresem."}
+{"id": 2, "title": "React useState Hook", "content": "Hook useState w React pozwala dodać stan do komponentu funkcyjnego. Zwraca tablicę z aktualną wartością stanu oraz funkcją do jej aktualizacji."}
+{"id": 3, "title": "Node.js Event Loop", "content": "Pętla zdarzeń w Node.js zarządza zadaniami asynchronicznymi. Dzięki temu możliwe jest nieblokujące I/O poprzez delegowanie operacji do systemu i wywoływanie callbacków, gdy wynik jest gotowy."}
+{"id": 4, "title": "PostgreSQL Indeksy", "content": "PostgreSQL oferuje różne typy indeksów, takie jak B-tree, Hash, GIN i GiST. Indeksy przyspieszają zapytania, zmniejszając konieczność pełnego skanowania tabeli."}
+{"id": 5, "title": "Git Rebase vs Merge", "content": "Rebase tworzy liniową historię poprzez przenoszenie lub łączenie commitów, natomiast merge zachowuje pełną historię, tworząc nowy commit scalający."}
+{"id": 6, "title": "Python Virtual Environments", "content": "Wirtualne środowisko w Pythonie izoluje zależności projektu, dzięki czemu biblioteki wymagane w jednym projekcie nie kolidują z innymi."}
+{"id": 7, "title": "Metody HTTP", "content": "Najczęściej używane metody HTTP to GET do pobierania danych, POST do tworzenia zasobów, PUT do aktualizacji oraz DELETE do usuwania."}
+{"id": 8, "title": "REST vs GraphQL", "content": "REST korzysta z wielu endpointów do pobierania powiązanych danych, natomiast GraphQL pozwala klientowi pobrać dokładnie te dane, które są potrzebne, w jednym zapytaniu."}
+{"id": 9, "title": "Docker Kontenery", "content": "Kontenery Docker pakują aplikacje razem z ich zależnościami, co gwarantuje spójność działania w różnych środowiskach."}
+{"id": 10, "title": "Overfitting w ML", "content": "Overfitting występuje, gdy model uczący się zbyt dobrze dopasowuje do danych treningowych i traci zdolność generalizacji na nowych danych."}

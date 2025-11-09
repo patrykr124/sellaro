@@ -1,0 +1,32 @@
+# Use Node.js LTS
+FROM node:18-alpine
+
+# Install system dependencies
+RUN apk add --no-cache \
+    ghostscript \
+    graphicsmagick \
+    # Additional dependencies that might be needed
+    ttf-freefont \
+    # Clean up
+    && rm -rf /var/cache/apk/*
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy package files
+COPY package*.json ./
+
+# Install app dependencies with legacy peer deps
+RUN npm install --legacy-peer-deps
+
+# Copy app source
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p products uploads
+
+# Expose the app port
+EXPOSE 5000
+
+# Start the application
+CMD ["npm", "run", "dev"]

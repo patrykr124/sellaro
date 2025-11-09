@@ -1,0 +1,41 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "docker:build": "docker build -t chatbotai-backend .",
+    "docker:run": "docker run -p 5000:5000 -v %cd%/products:/usr/src/app/products -v %cd%/uploads:/usr/src/app/uploads --env-file .env chatbotai-backend"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/multipart": "^9.2.1",
+    "@fastify/static": "^8.2.0",
+    "@langchain/community": "^0.3.54",
+    "@langchain/core": "^0.3.73",
+    "@langchain/langgraph": "^0.4.9",
+    "@langchain/ollama": "^0.2.4",
+    "@langchain/openai": "^0.6.11",
+    "dotenv": "^17.2.1",
+    "faiss-node": "^0.5.1",
+    "fastify": "^5.5.0",
+    "firebase-admin": "^13.4.0",
+    "langchain": "^0.3.32",
+    "ollama": "^0.5.17",
+    "openai": "^5.13.1",
+    "pdf-parse": "^1.1.1",
+    "pdf2pic": "^3.2.0",
+    "pdfjs-dist": "^5.4.149",
+    "sharp": "^0.34.3",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
