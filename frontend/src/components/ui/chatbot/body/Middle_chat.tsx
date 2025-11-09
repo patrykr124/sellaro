@@ -6,15 +6,16 @@ import {
   orderBy,
   onSnapshot,
   Timestamp,
-  where,
+
 } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import Loading from "./Loading";
 import LoadingMessage from "./LoadingMessage";
-import { db } from "@/lib/firebase/firebase";
+
 import { BotIcon } from "lucide-react";
 import Recommendation_products from "./recommendation_product/Recommendation_products";
 import { useAuth } from "@/lib/firebase/AuthProvider";
+import { db } from "@/lib/firebase/firebase";
 
 export default function Middle_chat() {
   const [conntent, setConntent] = useState<message_chat_type[]>([]);
@@ -27,44 +28,39 @@ export default function Middle_chat() {
   const formatTimestamp = (time: Timestamp) => {
     if (!time) return "";
     const date = time.toDate();
-    const day = date.getDay().toString().padStart(2, "0");
-    const month = date.getMonth().toString().padStart(2, "0");
-    const year = date.getFullYear().toString();
-    const hours = date.getHours().toString();
-    const min = date.getMinutes().toString();
-    return `${hours}:${min} | ${day}.${month}.${year}`;
+    const dd = String(date.getDate()).padStart(2, "0");
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const yyyy = String(date.getFullYear());
+    const hh = String(date.getHours()).padStart(2, "0");
+    const min = String(date.getMinutes()).padStart(2, "0");
+    return `${hh}:${min} | ${dd}.${mm}.${yyyy}`;
   };
-
   useEffect(() => {
-    if (!userId) {
-      console.log("Użytkownik nie jest zalogowany")
+    if (!userId?.email) {
       setLoadingAllContent(true);
-      setError(true)
+      setError(true);
       return;
     }
     setLoadingAllContent(true);
-    const q = query(collection(db, "messages"), where("userId", "==", userId?.uid), orderBy("createdAt", "asc"));
+    const q = query(
+      collection(db, "users", userId.email, "messages"),
+      orderBy("createdAt", "asc")
+    );
     const unsubscribe = onSnapshot(
       q,
-      (querySnapshot) => {
-        const newMessages: message_chat_type[] = [];
-        querySnapshot.forEach((doc) => {
-          newMessages.push({ id: doc.id, ...doc.data() } as message_chat_type);
-        });
+      (snap) => {
+        const newMessages = snap.docs.map((d) => ({ id: d.id, ...d.data() })) as message_chat_type[];
         setConntent(newMessages);
         setLoadingAllContent(false);
         setError(false);
       },
-      (error) => {
-        console.log(error);
+      () => {
         setLoadingAllContent(false);
         setError(true);
       }
     );
-    return () => {
-      unsubscribe();
-    };
-  }, [userId]);
+    return unsubscribe;
+  }, [userId?.email]);
 
   useEffect(() => {
     if (autoScroll.current) {

@@ -26,7 +26,7 @@ export default function Footer_chat() {
       await fetch(`${LOCAL_HOST}createmessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: contentMessage, userId: user?.uid }),
+        body: JSON.stringify({ content: contentMessage, userId: user }),
       });
     } catch (error) {
       console.log(error);
